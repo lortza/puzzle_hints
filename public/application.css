@@ -1,5 +1,6 @@
 :root {
   --wordle-input-height: 3rem;
+  --color-green: #04AA6D;
 }
 
 /* This is an HTML reset, but I didn't feel like writing a bunch of styles yet, so I only rest the box-sizing */
@@ -61,7 +62,7 @@ body {
 
 .navbar {
   font-size: large;
-  border-bottom: 1px solid green;
+  border-bottom: 1px solid var(--color-green);
   width: 100%;
   height: var(--wordle-input-height);
   background-color: lightgreen;
@@ -82,10 +83,15 @@ body {
   margin: 0 auto;
 }
 
-.submit-btn {
+input[type=submit].submit-btn {
   margin-top: 2rem;
+  color: white;
+  font-size: medium;
   height: var(--wordle-input-height);
   width: 100%;
+  background-color: var(--color-green);
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 .wordle-letter-inputs-wrapper {
@@ -99,6 +105,7 @@ body {
   width: var(--wordle-input-height);
   text-align: center;
   font-size: xx-large;
+  text-transform: uppercase
 }
 
 .wordle-text-input {
@@ -107,4 +114,5 @@ body {
   font-size: x-large;
   letter-spacing: 2px;
   box-sizing: border-box;
+  text-transform: uppercase;
 }
