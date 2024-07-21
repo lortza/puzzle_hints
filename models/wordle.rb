@@ -4,8 +4,8 @@ class Wordle
   PLACEHOLDER_CHARACTER = "_"
   def initialize(word_with_placeholders:, excluded_letters: '', required_letters: '', placeholder_character: PLACEHOLDER_CHARACTER)
     @submitted_word_with_placeholders = word_with_placeholders.upcase
-    @excluded_letters = excluded_letters.gsub(/[^a-zA-Z]/, '').uniq.chars.map(&:upcase)
-    @required_letters = required_letters.gsub(/[^a-zA-Z]/, '').uniq.chars.map(&:upcase)
+    @excluded_letters = excluded_letters.gsub(/[^a-zA-Z]/, '').chars.uniq.map(&:upcase)
+    @required_letters = required_letters.gsub(/[^a-zA-Z]/, '').chars.uniq.map(&:upcase)
     @available_letters = ('A'..'Z').to_a - @excluded_letters
     @submitted_placeholder_character = placeholder_character
   end
