@@ -1,4 +1,4 @@
 require 'sinatra'
-require './app'
+require './application'
 
 run App
