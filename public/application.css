@@ -56,19 +56,21 @@ table {
 /* =============== */
 body {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Helvetica', sans-serif;
+  margin: 0;
 }
 
 .navbar {
   font-size: large;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid green;
   width: 100%;
   height: var(--wordle-input-height);
+  background-color: lightgreen;
 }
 
 .navbar-site-logo {
   color: green;
   font-family:'Courier New', Courier, monospace;
-  font-weight: bolder;
+  font-weight: bold;
   text-decoration: none;
   &:visited {color: green;}
 }
@@ -77,6 +79,7 @@ body {
   width: 100%;
   max-width: 350px;
   padding: 1rem;
+  margin: 0 auto;
 }
 
 .submit-btn {
