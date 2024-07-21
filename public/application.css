@@ -3,6 +3,7 @@
 }
 
 /* This is an HTML reset, but I didn't feel like writing a bunch of styles yet, so I only rest the box-sizing */
+/* Source: https://meyerweb.com/eric/tools/css/reset/index.html */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
