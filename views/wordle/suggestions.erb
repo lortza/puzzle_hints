@@ -2,7 +2,7 @@
 <p>Enter the letters you know in the spaces provided. Submit to get possible solutions.</p>
 
 <form action="/wordle/suggestions" method="get">
-  <label">Enter known letters here:</label>
+  <label">Enter known letters here: (minimum 2 letters)</label>
   <div class='wordle-letter-inputs-wrapper'>
     <input class="wordle-letter-input" id="letter_1" type="text" placeholder="" name="letter_1" maxlength="1" value=<%= @letter_1 %>><br>
     <input class="wordle-letter-input" id="letter_2" type="text" placeholder="" name="letter_2" maxlength="1" value=<%= @letter_2 %>><br>
