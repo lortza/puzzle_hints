@@ -1,7 +1,10 @@
 require 'sinatra'
 require "sinatra/multi_route" # from sinatra-contrib gem
 require 'sinatra/url_for'
-require 'pry'
+
+if settings.environment == :development
+  require 'pry'
+end
 
 require_relative 'models/wordle'
 

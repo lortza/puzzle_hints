@@ -29,3 +29,8 @@ https://devcenter.heroku.com/articles/rack#sinatra
 https://medium.com/@isphinxs/deploying-a-sinatra-app-to-heroku-7944b024f77c
 https://puzzle-hints-0494e49572eb.herokuapp.com/
 https://git.heroku.com/puzzle-hints.git
+
+Deploying to Heroku:
+* run `heroku config:set RACK_ENV=production`
+* ensure any development gems are inside of an `settings.environment == :development` in the `application.rb`
+* add a Procfile with `web: bundle exec ruby application.rb -p $PORT`
