@@ -24,4 +24,6 @@ Stylesheets:
 https://stackoverflow.com/a/12341301/5009528
 
 Heroku:
+https://blog.heroku.com/32_deploy_merb_sinatra_or_any_rack_app_to_heroku
+https://devcenter.heroku.com/articles/rack#sinatra
 https://medium.com/@isphinxs/deploying-a-sinatra-app-to-heroku-7944b024f77c
