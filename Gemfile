@@ -6,6 +6,7 @@ gem 'rackup'
 gem 'sinatra'
 # gem 'sinatra-activerecord'
 gem 'sinatra-contrib' # https://sinatrarb.com/contrib/multi_route.html
+gem 'emk-sinatra-url-for' # path helpers https://github.com/emk/sinatra-url-for/
 # gem 'sinatra-static-assets'
 
 group :development do

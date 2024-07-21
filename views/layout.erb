@@ -8,7 +8,16 @@
   <title>PuzzleHint App</title>
 </head>
 <body>
-  PuzzleHint App<br><br>
-  <%= yield %>
+  <nav class="navbar">
+    <div class='container'>
+      <a href="<%= url_for "/" %>" class="navbar-site-logo">
+        PuzzleHint App
+      </a>
+    </div>
+  </nav>
+
+  <div class='container'>
+    <%= yield %>
+  </div>
 </body>
 </html>

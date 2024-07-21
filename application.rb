@@ -1,5 +1,6 @@
 require 'sinatra'
 require "sinatra/multi_route" # from sinatra-contrib gem
+require 'sinatra/url_for'
 require 'pry'
 
 require_relative 'models/wordle'
@@ -20,7 +21,6 @@ get '/wordle' do
 end
 
 get '/', '/wordle/suggestions' do
-  # placeholder_character = "_"
   @letter_1 = params[:letter_1]
   @letter_2 = params[:letter_2]
   @letter_3 = params[:letter_3]
