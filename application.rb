@@ -24,11 +24,11 @@ get '/wordle' do
 end
 
 get '/', '/wordle/suggestions' do
-  @letter_1 = params[:letter_1]
-  @letter_2 = params[:letter_2]
-  @letter_3 = params[:letter_3]
-  @letter_4 = params[:letter_4]
-  @letter_5 = params[:letter_5]
+  @letter_1 = params[:letter_1]&.gsub(/[^a-zA-Z]/, '')
+  @letter_2 = params[:letter_2]&.gsub(/[^a-zA-Z]/, '')
+  @letter_3 = params[:letter_3]&.gsub(/[^a-zA-Z]/, '')
+  @letter_4 = params[:letter_4]&.gsub(/[^a-zA-Z]/, '')
+  @letter_5 = params[:letter_5]&.gsub(/[^a-zA-Z]/, '')
 
   incoming_letters_blank = [@letter_1, @letter_2, @letter_3, @letter_4, @letter_5].compact.empty?
   if incoming_letters_blank
@@ -46,8 +46,8 @@ get '/', '/wordle/suggestions' do
     @excluded_letters = params[:excluded_letters].nil? ? "" : params[:excluded_letters]
     @suggestions = Wordle.new(
       word_with_placeholders: word_w_placeholders,
-      required_letters: @required_letters.chars,
-      excluded_letters: @excluded_letters.chars,
+      required_letters: @required_letters,
+      excluded_letters: @excluded_letters,
       placeholder_character: Wordle::PLACEHOLDER_CHARACTER
     ).suggest
     # @suggestions = Wordle.temp_list

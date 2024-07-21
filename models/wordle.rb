@@ -2,10 +2,10 @@ require_relative 'dictionary'
 
 class Wordle
   PLACEHOLDER_CHARACTER = "_"
-  def initialize(word_with_placeholders:, excluded_letters:, required_letters: nil, placeholder_character: PLACEHOLDER_CHARACTER)
+  def initialize(word_with_placeholders:, excluded_letters: '', required_letters: '', placeholder_character: PLACEHOLDER_CHARACTER)
     @submitted_word_with_placeholders = word_with_placeholders.upcase
-    @excluded_letters = excluded_letters.map(&:upcase)
-    @required_letters = required_letters&.map(&:upcase)
+    @excluded_letters = excluded_letters.gsub(/[^a-zA-Z]/, '').uniq.chars.map(&:upcase)
+    @required_letters = required_letters.gsub(/[^a-zA-Z]/, '').uniq.chars.map(&:upcase)
     @available_letters = ('A'..'Z').to_a - @excluded_letters
     @submitted_placeholder_character = placeholder_character
   end
@@ -41,7 +41,7 @@ class Wordle
             word[index] = available_letter
             if word.include?(@submitted_placeholder_character)
               words_with_placeholders << word.dup
-            elsif @required_letters
+            elsif !@required_letters.empty?
               (built_words << word.dup) if @required_letters.all? {|l| word.include?(l)}
             else
                built_words << word.dup
@@ -64,17 +64,17 @@ class Wordle
 end
 
 # Instant answer
-# puts Wordle.new(
-#   word_with_placeholders: 'sha_t',
-#   required_letters: ''.chars,
-#   excluded_letters: 'lcr'.chars,
-#   placeholder_character: '_'
-# ).suggest
+puts Wordle.new(
+  word_with_placeholders: 's_a_t',
+  required_letters: 'h',
+  excluded_letters: '  lc  34*  r',
+  placeholder_character: '_'
+).suggest
 
 # Takes about 1 minute
 # puts Wordle.new(
 #   word_with_placeholders: '_____',
-#   required_letters: 'e'.chars,
-#   excluded_letters: 'bornmail'.chars,
+#   required_letters: 'e',
+#   excluded_letters: 'bornmail',
 #   placeholder_character: '_'
 # ).suggest
