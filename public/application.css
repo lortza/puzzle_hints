@@ -1,0 +1,12 @@
+.foo {
+  display: block;
+  background-color: red;
+  height: 30rem;
+  width: 30rem;
+}
+
+.wordle-letter-input {
+  height: 2rem;
+  width: 2rem;
+  padding: 1px;
+}
