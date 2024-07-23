@@ -16,15 +16,15 @@ require_relative 'models/spelling_bee'
 #   erb :index
 # end
 
-get '/wordle' do
-  # Get all posts from database
-  # @posts = Post.all
+# get '/wordle' do
+#   # Get all posts from database
+#   # @posts = Post.all
 
-  # Render posts index view
-  erb :'wordle/index'
-end
+#   # Render posts index view
+#   erb :'wordle/index'
+# end
 
-get '/', '/wordle/suggestions' do
+get '/', '/wordle' do
   @letter_1 = params[:letter_1]&.gsub(/[^a-zA-Z]/, '')
   @letter_2 = params[:letter_2]&.gsub(/[^a-zA-Z]/, '')
   @letter_3 = params[:letter_3]&.gsub(/[^a-zA-Z]/, '')
@@ -53,10 +53,10 @@ get '/', '/wordle/suggestions' do
     ).suggest
   end
 
-  erb :'wordle/suggestions'
+  erb :'wordle'
 end
 
-get '/spelling_bee/suggestions' do
+get '/spelling_bee' do
 
   @must_contain = params[:must_contain]&.gsub(/[^a-zA-Z]/, '')
   @can_contain = params[:can_contain]&.gsub(/[^a-zA-Z]/, '')
@@ -70,7 +70,7 @@ get '/spelling_bee/suggestions' do
     ).suggest
   end
 
-  erb :'spelling_bee/suggestions'
+  erb :'spelling_bee'
 end
 
 post '/posts' do
