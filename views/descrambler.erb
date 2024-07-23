@@ -1,0 +1,20 @@
+<h1>Descrambler</h1>
+<p>Enter the word you would like to descramble to get possible solutions.</p>
+
+<form action="/descrambler" method="get">
+  <!--<label for="letters">Enter your surrounding letters here:</label><br>-->
+  <input class="wordle-text-input mb-1" type="text" id="letters" name="letters" value="<%= @letters %>" maxlength="20" required>
+
+  <input type="submit" value="Get Suggestions" class="submit-btn">
+</form>
+<% if @suggestions.length > 0 %>
+<br>
+<hr>
+<h2>Possible Solutions</h2>
+
+<ol>
+  <% @suggestions.each do |suggestion| %>
+    <li><%= suggestion %></li>
+  <% end %>
+</ul>
+<% end %>

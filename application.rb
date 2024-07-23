@@ -8,6 +8,7 @@ end
 
 require_relative 'models/wordle'
 require_relative 'models/spelling_bee'
+require_relative 'models/descrambler'
 
 
 # Define route handlers below
@@ -57,7 +58,6 @@ get '/', '/wordle' do
 end
 
 get '/spelling_bee' do
-
   @must_contain = params[:must_contain]&.gsub(/[^a-zA-Z]/, '')
   @can_contain = params[:can_contain]&.gsub(/[^a-zA-Z]/, '')
 
@@ -71,6 +71,18 @@ get '/spelling_bee' do
   end
 
   erb :'spelling_bee'
+end
+
+get '/descrambler' do
+  @letters = params[:letters]&.gsub(/[^a-zA-Z]/, '')
+
+  if @letters.nil? || @letters.empty?
+    @suggestions = []
+  else
+    @suggestions = Descrambler.new(@letters).suggest
+  end
+
+  erb :'descrambler'
 end
 
 post '/posts' do
