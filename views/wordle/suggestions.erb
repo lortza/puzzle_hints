@@ -2,24 +2,20 @@
 <p>Enter the letters you know in the spaces provided. Submit to get possible solutions.</p>
 
 <form action="/wordle/suggestions" method="get">
-  <label">Enter known letters here: (minimum 2 letters)</label>
-  <div class='wordle-letter-inputs-wrapper'>
-    <input class="wordle-letter-input" id="letter_1" type="text" placeholder="" name="letter_1" maxlength="1" value=<%= @letter_1 %>><br>
-    <input class="wordle-letter-input" id="letter_2" type="text" placeholder="" name="letter_2" maxlength="1" value=<%= @letter_2 %>><br>
-    <input class="wordle-letter-input" id="letter_3" type="text" placeholder="" name="letter_3" maxlength="1" value=<%= @letter_3 %>><br>
-    <input class="wordle-letter-input" id="letter_4" type="text" placeholder="" name="letter_4" maxlength="1" value=<%= @letter_4 %>><br>
-    <input class="wordle-letter-input" id="letter_5" type="text" placeholder="" name="letter_5" maxlength="1" value=<%= @letter_5 %>><br>
+  <label>Enter known letters here: (minimum 2 letters)</label>
+  <div class='wordle-letter-inputs-wrapper mb-1'>
+    <input class="wordle-letter-input" type="text" name="letter_1" maxlength="1" value="<%= @letter_1 %>">
+    <input class="wordle-letter-input" type="text" name="letter_2" maxlength="1" value="<%= @letter_2 %>">
+    <input class="wordle-letter-input" type="text" name="letter_3" maxlength="1" value="<%= @letter_3 %>">
+    <input class="wordle-letter-input" type="text" name="letter_4" maxlength="1" value="<%= @letter_4 %>">
+    <input class="wordle-letter-input" type="text" name="letter_5" maxlength="1" value="<%= @letter_5 %>">
   </div>
 
-  <br>
-  <label for="required_letters">Enter your Yellow letters here:</label>
-  <br>
-  <input class="wordle-text-input" type="text" id="required_letters" name="required_letters" value=<%= @required_letters %> ><br>
-  <br>
+  <label for="required_letters">Enter your Yellow letters here:</label><br>
+  <input class="wordle-text-input mb-1" type="text" id="required_letters" name="required_letters" value="<%= @required_letters %>">
 
-  <label for="excluded_letters">Enter your Gray letters here:</label>
-  <br>
-  <input class="wordle-text-input" type="text" id="excluded_letters" name="excluded_letters" value=<%= @excluded_letters %> ><br>
+  <label for="excluded_letters">Enter your Gray letters here:</label><br>
+  <input class="wordle-text-input mb-1" type="text" id="excluded_letters" name="excluded_letters" value="<%= @excluded_letters %>">
 
   <input type="submit" value="Get Suggestions" class="submit-btn">
 </form>
