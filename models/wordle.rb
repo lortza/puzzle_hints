@@ -64,12 +64,12 @@ class Wordle
 end
 
 # Instant answer
-puts Wordle.new(
-  word_with_placeholders: 's_a_t',
-  required_letters: 'h',
-  excluded_letters: '  lc  34*  r',
-  placeholder_character: '_'
-).suggest
+# puts Wordle.new(
+#   word_with_placeholders: 's_a_t',
+#   required_letters: 'h',
+#   excluded_letters: '  lc  34*  r',
+#   placeholder_character: '_'
+# ).suggest
 
 # Takes about 1 minute
 # puts Wordle.new(
