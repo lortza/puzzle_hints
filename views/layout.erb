@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="<%= url('/application.css') %>" rel="stylesheet" type="text/css" />
-  <title>PuzzleHints App</title>
-</head>
-<body>
-  <nav class="navbar">
-    <div class='container'>
-      <a href="<%= url_for "/" %>" class="navbar-site-logo">
-        PuzzleHints
-      </a>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex">
+    <link href="<%= url('/application.css') %>" rel="stylesheet" type="text/css" />
+    <title>PuzzleHints</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class='container'>
+        <div class='navbar-content-wrapper'>
+          <a href="<%= url_for '/' %>" class="navbar-site-logo">PuzzleHints</a>
+          <div class="navbar-right">
+            <a href="<%= url_for '/wordle/suggestions' %>" class="navbar-link">Wordle</a>
+            <a href="<%= url_for '/spelling_bee/suggestions' %>" class="navbar-link">Spelling Bee</a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-  <div class='container'>
-    <%= yield %>
-  </div>
-</body>
+    <div class='container'>
+      <%= yield %>
+    </div>
+  </body>
 </html>

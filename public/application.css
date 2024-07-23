@@ -60,6 +60,8 @@ body {
   margin: 0;
 }
 
+.mb-1 {margin-bottom: 1rem;}
+
 .navbar {
   font-size: large;
   border-bottom: 1px solid var(--color-green);
@@ -68,10 +70,31 @@ body {
   background-color: lightgreen;
 }
 
+.navbar-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .navbar-site-logo {
+  display: block;
   color: green;
   font-family:'Courier New', Courier, monospace;
   font-weight: bold;
+  text-decoration: none;
+  &:visited {color: green;}
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navbar-link {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: green;
   text-decoration: none;
   &:visited {color: green;}
 }
