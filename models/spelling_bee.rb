@@ -17,6 +17,6 @@ class SpellingBee
 end
 
 # puts SpellingBee.new(
-#   must_contain: 'g',
-#   can_contain: 'eatbmi'
+#   must_contain: 'n',
+#   can_contain: 'dmoehy'
 # ).suggest

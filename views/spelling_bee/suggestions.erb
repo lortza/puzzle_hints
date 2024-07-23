@@ -1,0 +1,23 @@
+<h1>Spelling Bee Hints</h1>
+<p>Enter the letters you know in the spaces provided. Submit to get possible solutions.</p>
+
+<form action="/spelling_bee/suggestions" method="get">
+  <label for="required_letters">Enter the center yellow letter here:</label><br>
+  <input class="wordle-letter-input mb-1" id="must_contain" type="text" name="must_contain" value="<%= @must_contain %>" maxlength="1" required><br>
+
+  <label for="excluded_letters">Enter your surrounding letters here:</label><br>
+  <input class="wordle-text-input mb-1" type="text" id="can_contain" name="can_contain" value="<%= @can_contain %>" >
+
+  <input type="submit" value="Get Suggestions" class="submit-btn">
+</form>
+<% if @suggestions.length > 0 %>
+<br>
+<hr>
+<h2>Possible Solutions</h2>
+
+<ol>
+  <% @suggestions.each do |suggestion| %>
+    <li><%= suggestion %></li>
+  <% end %>
+</ul>
+<% end %>

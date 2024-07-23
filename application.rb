@@ -7,6 +7,7 @@ if settings.environment == :development
 end
 
 require_relative 'models/wordle'
+require_relative 'models/spelling_bee'
 
 
 # Define route handlers below
@@ -50,10 +51,26 @@ get '/', '/wordle/suggestions' do
       excluded_letters: @excluded_letters,
       placeholder_character: Wordle::PLACEHOLDER_CHARACTER
     ).suggest
-    # @suggestions = Wordle.temp_list
   end
 
   erb :'wordle/suggestions'
+end
+
+get '/spelling_bee/suggestions' do
+
+  @must_contain = params[:must_contain]&.gsub(/[^a-zA-Z]/, '')
+  @can_contain = params[:can_contain]&.gsub(/[^a-zA-Z]/, '')
+
+  if [@must_contain, @can_contain].compact.empty?
+    @suggestions = []
+  else
+    @suggestions = SpellingBee.new(
+      must_contain: @must_contain,
+      can_contain: @can_contain
+    ).suggest
+  end
+
+  erb :'spelling_bee/suggestions'
 end
 
 post '/posts' do
