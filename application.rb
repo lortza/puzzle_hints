@@ -74,12 +74,12 @@ get '/spelling_bee' do
 end
 
 get '/descrambler' do
-  @letters = params[:letters]&.gsub(/[^a-zA-Z]/, '')
+  @input = params[:input]&.gsub(/[^a-zA-Z]/, '')
 
-  if @letters.nil? || @letters.empty?
+  if @input.nil? || @input.empty?
     @suggestions = []
   else
-    @suggestions = Descrambler.new(@letters).suggest
+    @suggestions = Descrambler.new(@input).suggest
   end
 
   erb :'descrambler'

@@ -2,8 +2,8 @@
 <p>Enter the word you would like to descramble to get possible solutions.</p>
 
 <form action="/descrambler" method="get">
-  <!--<label for="letters">Enter your surrounding letters here:</label><br>-->
-  <input class="wordle-text-input mb-1" type="text" id="letters" name="letters" value="<%= @letters %>" maxlength="20" required>
+  <!--<label for="input">Enter your surrounding letters here:</label><br>-->
+  <input class="wordle-text-input mb-1" type="text" id="input" name="input" value="<%= @input %>" maxlength="20" required>
 
   <input type="submit" value="Get Suggestions" class="submit-btn">
 </form>
