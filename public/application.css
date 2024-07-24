@@ -96,15 +96,17 @@ body {
 }
 
 .dropdown-header {
-  width: auto;
+  width: 125px;
   color: green;
+  text-align: right;
 }
 
 /* Hide the inputs, checkmarks, and submenu */
 .dropdown-header input, ul.dropdown-items {
   display: none;
-  position: absolute;
+  position: relative;
   width: inherit;
+  text-align: left;
 }
 
 .dropdown-header ul.dropdown-items li {
@@ -135,7 +137,8 @@ body {
 .dropdown-header input:checked~ul.dropdown-items {
   display: block;
   padding: 0;
-  top: var(--nav-bar-height);
+  top: 8px;
+  /* top: var(--nav-bar-height); */
   right: 0;
 }
 /* navbar */
