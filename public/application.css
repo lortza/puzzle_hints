@@ -1,6 +1,7 @@
 :root {
   --wordle-input-height: 3rem;
   --color-green: #04AA6D;
+  --nav-bar-height: 3rem;
 }
 
 /* This is an HTML reset, but I didn't feel like writing a bunch of styles yet, so I only rest the box-sizing */
@@ -62,12 +63,17 @@ body {
 
 .mb-1 {margin-bottom: 1rem;}
 
+/* NAVBAR */
 .navbar {
   font-size: large;
   border-bottom: 1px solid var(--color-green);
   width: 100%;
   height: var(--wordle-input-height);
   background-color: lightgreen;
+}
+
+.navbar ul li {
+  list-style: none;
 }
 
 .navbar-content-wrapper {
@@ -85,19 +91,55 @@ body {
 }
 
 .navbar-right {
-  display: flex;
-  justify-content: space-between;
-  gap: .5rem;
-}
-
-.navbar-link {
-  display: block;
   margin: 0;
   padding: 0;
+}
+
+.dropdown-header {
+  width: auto;
+  color: green;
+}
+
+/* Hide the inputs, checkmarks, and submenu */
+.dropdown-header input, ul.dropdown-items {
+  display: none;
+  position: absolute;
+  width: inherit;
+}
+
+.dropdown-header ul.dropdown-items li {
+  padding: .5rem;
+  background-color: lightgreen;
+}
+
+.dropdown-items a {
   color: green;
   text-decoration: none;
-  &:visited {color: green;}
 }
+
+.dropdown-header input, ul.dropdown-items li:hover {
+  background: var(--color-green);
+}
+
+.dropdown-header input, ul.dropdown-items li:hover a {
+  color: white;
+}
+
+.dropdown-header label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+/* Show the submenu when input is checked */
+.dropdown-header input:checked~ul.dropdown-items {
+  display: block;
+  padding: 0;
+  top: var(--nav-bar-height);
+  right: 0;
+}
+/* navbar */
+
 
 .container {
   width: 100%;

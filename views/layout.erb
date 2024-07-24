@@ -13,11 +13,17 @@
       <div class='container'>
         <div class='navbar-content-wrapper'>
           <a href="<%= url_for '/' %>" class="navbar-site-logo">PuzzleHints</a>
-          <div class="navbar-right">
-            <a href="<%= url_for '/wordle' %>" class="navbar-link">Wordle</a>
-            <a href="<%= url_for '/spelling_bee' %>" class="navbar-link">Spelling Bee</a>
-            <a href="<%= url_for '/descrambler' %>" class="navbar-link">Descrambler</a>
-          </div>
+          <ul class="navbar-right">
+            <li class="dropdown-header">
+              <input id="games" type="checkbox" name="games" />
+              <label for="games">Games</label>
+              <ul class="dropdown-items">
+                <li><a href="<%= url_for '/wordle' %>">Wordle</a></li>
+                <li><a href="<%= url_for '/spelling_bee' %>">Spelling Bee</a></li>
+                <li><a href="<%= url_for '/descrambler' %>">Descrambler</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
