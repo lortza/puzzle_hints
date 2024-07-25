@@ -10,8 +10,23 @@ browser:
 
 
 ## Resources
-### Getting Started:
-* https://sinatrarb.com/intro.html
+* Docs: https://sinatrarb.com/intro.html
+* Helpers: https://www.sitepoint.com/sinatras-little-helpers/
+* Extensions: https://sinatrarb.com/extensions.html
+
+If you want to use gems like pry in development only, you need to wrap them in an env flag like:
+```ruby
+# application.rb
+
+if settings.environment == :development
+  require 'pry'
+end
+
+# or
+require 'pry' if development?
+```
+
+### Sinatra Tutorials
 * https://www.honeybadger.io/blog/building-a-sinatra-app-in-ruby/
 * https://webapps-for-beginners.rubymonstas.org/sinatra/hello_world.html
 * https://medium.com/@mcdowpm/how-to-build-a-sinatra-app-2ac89fd058a0
