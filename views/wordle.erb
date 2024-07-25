@@ -1,7 +1,7 @@
 <h1>Wordle Hints</h1>
 <p>Enter the letters you know in the spaces provided. Submit to get possible solutions.</p>
 
-<form action="/wordle/suggestions" method="get">
+<form action="/wordle" method="get">
   <label>Enter known letters here: (minimum 2 letters)</label>
   <div class='wordle-letter-inputs-wrapper mb-1'>
     <input class="wordle-letter-input" type="text" name="letter_1" maxlength="1" value="<%= @letter_1 %>">

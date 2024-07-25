@@ -1,7 +1,7 @@
 <h1>Spelling Bee Hints</h1>
 <p>Enter the letters you know in the spaces provided. Submit to get possible solutions.</p>
 
-<form action="/spelling_bee/suggestions" method="get">
+<form action="/spelling_bee" method="get">
   <label for="required_letters">Enter the center yellow letter here:</label><br>
   <input class="wordle-letter-input mb-1" id="must_contain" type="text" name="must_contain" value="<%= @must_contain %>" maxlength="1" required><br>
 
