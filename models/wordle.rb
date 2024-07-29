@@ -55,6 +55,8 @@ class Wordle
 
     # Return only the words that appear in both the dictionary and the built words
     results = ::Dictionary.wordle_possible_answers & built_words
+    results << "no suggestions" if results.empty?
+    results
     # puts results
     # puts "-------"
     # puts "#{results.length} words found"
