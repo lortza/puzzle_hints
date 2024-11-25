@@ -1,15 +1,14 @@
-require 'sinatra'
+require "sinatra"
 require "sinatra/multi_route" # from sinatra-contrib gem
-require 'sinatra/url_for'
+require "sinatra/url_for"
 
 if settings.environment == :development
-  require 'pry'
+  require "pry"
 end
 
-require_relative 'models/wordle'
-require_relative 'models/spelling_bee'
-require_relative 'models/descrambler'
-
+require_relative "models/wordle"
+require_relative "models/spelling_bee"
+require_relative "models/descrambler"
 
 # Define route handlers below
 # get '/' do
@@ -25,12 +24,12 @@ require_relative 'models/descrambler'
 #   erb :'wordle/index'
 # end
 
-get '/', '/wordle' do
-  @letter_1 = params[:letter_1]&.gsub(/[^a-zA-Z]/, '')
-  @letter_2 = params[:letter_2]&.gsub(/[^a-zA-Z]/, '')
-  @letter_3 = params[:letter_3]&.gsub(/[^a-zA-Z]/, '')
-  @letter_4 = params[:letter_4]&.gsub(/[^a-zA-Z]/, '')
-  @letter_5 = params[:letter_5]&.gsub(/[^a-zA-Z]/, '')
+get "/", "/wordle" do
+  @letter_1 = params[:letter_1]&.gsub(/[^a-zA-Z]/, "")
+  @letter_2 = params[:letter_2]&.gsub(/[^a-zA-Z]/, "")
+  @letter_3 = params[:letter_3]&.gsub(/[^a-zA-Z]/, "")
+  @letter_4 = params[:letter_4]&.gsub(/[^a-zA-Z]/, "")
+  @letter_5 = params[:letter_5]&.gsub(/[^a-zA-Z]/, "")
 
   incoming_letters_blank = [@letter_1, @letter_2, @letter_3, @letter_4, @letter_5].compact.empty?
   if incoming_letters_blank
@@ -54,49 +53,49 @@ get '/', '/wordle' do
     ).suggest
   end
 
-  erb :'wordle'
+  erb :wordle
 end
 
-get '/spelling_bee' do
-  @must_contain = params[:must_contain]&.gsub(/[^a-zA-Z]/, '')
-  @can_contain = params[:can_contain]&.gsub(/[^a-zA-Z]/, '')
+get "/spelling_bee" do
+  @must_contain = params[:must_contain]&.gsub(/[^a-zA-Z]/, "")
+  @can_contain = params[:can_contain]&.gsub(/[^a-zA-Z]/, "")
 
-  if [@must_contain, @can_contain].compact.empty?
-    @suggestions = []
+  @suggestions = if [@must_contain, @can_contain].compact.empty?
+    []
   else
-    @suggestions = SpellingBee.new(
+    SpellingBee.new(
       must_contain: @must_contain,
       can_contain: @can_contain
     ).suggest
   end
 
-  erb :'spelling_bee'
+  erb :spelling_bee
 end
 
-get '/descrambler' do
-  @input = params[:input]&.gsub(/[^a-zA-Z]/, '')
+get "/descrambler" do
+  @input = params[:input]&.gsub(/[^a-zA-Z]/, "")
 
-  if @input.nil? || @input.empty?
-    @suggestions = []
+  @suggestions = if @input.nil? || @input.empty?
+    []
   else
-    @suggestions = Descrambler.new(@input).suggest
+    Descrambler.new(@input).suggest
   end
 
-  erb :'descrambler'
+  erb :descrambler
 end
 
-post '/posts' do
-  # Get posted form data
-  title = params[:title]
-  body = params[:body]
+# post "/posts" do
+#   # Get posted form data
+#   title = params[:title]
+#   body = params[:body]
 
-  # Create post in database
-  # @post = Post.create(title: title, body: body)
+#   # Create post in database
+#   @post = Post.create(title: title, body: body)
 
-  # Redirect to post page
-  # redirect "/posts/#{@post.id}"
-end
+#   # Redirect to post page
+#   redirect "/posts/#{@post.id}"
+# end
 
 def letter_or_placeholder(value)
-  value.nil? || value&.empty? ? Wordle::PLACEHOLDER_CHARACTER : value
+  (value.nil? || value&.empty?) ? Wordle::PLACEHOLDER_CHARACTER : value
 end

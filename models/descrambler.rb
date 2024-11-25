@@ -1,8 +1,8 @@
-require_relative 'dictionary'
+require_relative "dictionary"
 
 class Descrambler
   def initialize(input)
-    @input = input.gsub(/[^a-zA-Z]/, '').downcase
+    @input = input.gsub(/[^a-zA-Z]/, "").downcase
     @letters = @input.chars
   end
 
