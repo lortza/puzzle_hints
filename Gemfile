@@ -1,26 +1,27 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby File.read(".ruby-version").strip
 
-gem 'puma'
-gem 'rake'
-gem 'rackup'
-gem 'sinatra'
+gem "puma"
+gem "rake"
+gem "rackup"
+gem "sinatra"
 # gem 'sinatra-activerecord'
-gem 'sinatra-contrib' # https://sinatrarb.com/contrib/multi_route.html
-gem 'emk-sinatra-url-for' # path helpers https://github.com/emk/sinatra-url-for/
+gem "sinatra-contrib" # https://sinatrarb.com/contrib/multi_route.html
+gem "emk-sinatra-url-for" # path helpers https://github.com/emk/sinatra-url-for/
 # gem 'sinatra-static-assets'
 
 group :development do
-  gem 'pry'
+  gem "pry"
   # gem 'foreman'
-  # gem 'rubocop'
+  gem "standard"
   # gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 end
 
 group :test do
-  gem 'rack-test'
-  gem 'rspec', require: 'spec'
+  gem "rack-test"
+  gem "rspec", require: "spec"
 end
 
 group :production do

@@ -1,21 +1,17 @@
-require_relative 'dictionary'
+require_relative "dictionary"
 
 class Wordle
   PLACEHOLDER_CHARACTER = "_"
-  def initialize(word_with_placeholders:, excluded_letters: '', required_letters: '', placeholder_character: PLACEHOLDER_CHARACTER)
+  def initialize(word_with_placeholders:, excluded_letters: "", required_letters: "", placeholder_character: PLACEHOLDER_CHARACTER)
     @submitted_word_with_placeholders = word_with_placeholders.upcase
-    @excluded_letters = excluded_letters.gsub(/[^a-zA-Z]/, '').chars.uniq.map(&:upcase)
-    @required_letters = required_letters.gsub(/[^a-zA-Z]/, '').chars.uniq.map(&:upcase)
-    @available_letters = ('A'..'Z').to_a - @excluded_letters
+    @excluded_letters = excluded_letters.gsub(/[^a-zA-Z]/, "").chars.uniq.map(&:upcase)
+    @required_letters = required_letters.gsub(/[^a-zA-Z]/, "").chars.uniq.map(&:upcase)
+    @available_letters = ("A".."Z").to_a - @excluded_letters
     @submitted_placeholder_character = placeholder_character
   end
 
   def temp_list
     %w[a b c d e f]
-  end
-
-  def suggest2
-    binding.pry
   end
 
   def suggest
@@ -37,14 +33,13 @@ class Wordle
           next unless word_letter == @submitted_placeholder_character
 
           @available_letters.each do |available_letter|
-            available_letter
             word[index] = available_letter
             if word.include?(@submitted_placeholder_character)
               words_with_placeholders << word.dup
             elsif !@required_letters.empty?
-              (built_words << word.dup) if @required_letters.all? {|l| word.include?(l)}
+              (built_words << word.dup) if @required_letters.all? { |l| word.include?(l) }
             else
-               built_words << word.dup
+              built_words << word.dup
             end
           end # each available letter
           # remove original word from words_with_placeholders array
