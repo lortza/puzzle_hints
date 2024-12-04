@@ -1,3 +1,5 @@
 ignore:
   - config.ru
+  - ".standard.yml"
   - ".github/**/*"
+  - ".github/pull_request_template.md"
