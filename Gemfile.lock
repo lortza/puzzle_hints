@@ -1,3 +1,46 @@
+GIT
+  remote: https://github.com/rspec/rspec-core.git
+  revision: aec5f49485d97908183dbe790a7fefb8baaa8091
+  branch: main
+  specs:
+    rspec-core (3.14.0.pre)
+      rspec-support (= 3.14.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-expectations.git
+  revision: ba31727e856de42abb5a2e6566855f0831e1a619
+  branch: main
+  specs:
+    rspec-expectations (3.14.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.14.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-mocks.git
+  revision: 3caa9ac841e146d618421f870077c0ad684e6cad
+  branch: main
+  specs:
+    rspec-mocks (3.14.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.14.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-support.git
+  revision: 393117fb4c8874918044d9ed5d3ff3c482fd41ec
+  branch: main
+  specs:
+    rspec-support (3.14.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec.git
+  revision: b6c8f80e4e31fe101994ff3527b03bcc452ff247
+  branch: main
+  specs:
+    rspec (3.14.0.pre)
+      rspec-core (= 3.14.0.pre)
+      rspec-expectations (= 3.14.0.pre)
+      rspec-mocks (= 3.14.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,19 +83,6 @@ GEM
     rainbow (3.1.1)
     rake (13.2.1)
     regexp_parser (2.9.2)
-    rspec (3.13.0)
-      rspec-core (~> 3.13.0)
-      rspec-expectations (~> 3.13.0)
-      rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.2)
-      rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.3)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.2)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.13.0)
-    rspec-support (3.13.1)
     rubocop (1.68.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -111,7 +141,11 @@ DEPENDENCIES
   rack-test
   rackup
   rake
-  rspec
+  rspec!
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-support!
   sinatra
   sinatra-contrib
   standard

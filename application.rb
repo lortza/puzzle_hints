@@ -48,8 +48,7 @@ get "/", "/wordle" do
     @suggestions = Wordle.new(
       word_with_placeholders: word_w_placeholders,
       required_letters: @required_letters,
-      excluded_letters: @excluded_letters,
-      placeholder_character: Wordle::PLACEHOLDER_CHARACTER
+      excluded_letters: @excluded_letters
     ).suggest
   end
 
